@@ -1,13 +1,57 @@
-<!DOCTYPE html><html><head>
-    <script src="p5.min.js"></script>
-    <script src="p5.dom.min.js"></script>
-    <script src="p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8">
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Protact the ocean</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+    <style>
+          body{
+            background-color: #377BD2;
+            text-align:center;
+          }
 
-  </head>
-  <body>
-    <script src="sketch.js"></script>
-  
+          h1{
+            background-color: #E8F7DF;
+          }
 
-</body></html>
+          p{
+            font-size: 18px;
+          }
+
+          /* canvas{
+            border: thin solid blue;
+          } */
+        </style>
+
+  	<script>
+function preload(){
+
+img1 = loadImage ("bag.png");
+img2 = loadImage ("bg.jpg");
+}
+
+			function setup(){
+				var canvas = createCanvas(500, 300);
+        canvas.parent('sketch-div');
+        background(img2);
+			}
+
+      function addCircle(){
+        // fill(random(256), random(256), random(256));
+        image(img1,random(width),random(height),80,80)
+      }
+
+      function buttonClicked(){
+        addCircle();
+      }
+		</script>
+	</head>
+	<body onload="setupListeners()">
+
+    <h1>Ohhhh No</h1>
+    <div id="sketch-div"></div>
+    <button onclick="buttonClicked()">Dump Trash</button>
+
+    <h1>Save them</h1>
+    <a href="page2.html">Help</a>
+	</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Protact the ocean</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+    <style>
+          body{
+            background-color: #377BD2;
+            text-align:center;
+          }
+
+          h1{
+            background-color: #E8F7DF;
+          }
+
+          p{
+            font-size: 18px;
+          }
+
+          /* canvas{
+            border: thin solid blue;
+          } */
+        </style>
+
+  	<script>
+    var img;
+
+    function preload() {
+      img1 = loadImage("bag.png");
+      img2 = loadImage("Sun.png");
+      img3 = loadImage("gui.png");
+      img4 = loadImage("gui1.png");
+      img5 = loadImage("dirtyocean.png");
+      img6 = loadImage("ocean.png");
+
+    }
+
+    function setup() {
+      createCanvas(500, 400);
+      noCursor();
+      noStroke();
+    }
+
+    function draw() {
+      let x = mouseX;
+      let y = mouseY;
+      let ix = width - mouseX; // Inverse X
+      let iy = height - mouseY; // Inverse Y
+
+      if (mouseIsPressed) {
+        imageMode(CORNER);
+
+        background(img6);
+        background(img3);
+      } else {
+        imageMode(CORNER);
+
+        background(img5);
+
+          background(img4);
+      }
+
+
+
+      imageMode(CENTER);
+      image(img1, x, y);
+      image(img2, ix, iy);
+
+
+
+    }
+		</script>
+	</head>
+	<body>
+
+<h1><a href="index.html">Help</a></h1>
+
+
+	</body>
+</html>
