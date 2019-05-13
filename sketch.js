@@ -1,46 +1,99 @@
-var img;
+var x = 200;
+var speedX = 2;
+
+var y = 100;
+var speedY = 2;
+
+var a = 0;
+var speedA = 1;
+
+var b = 0;
+var speedB = 1;
 
 function preload() {
-  img1 = loadImage("bag.png");
-  img2 = loadImage("Sun.png");
-  img3 = loadImage("gui.png");
-  img4 = loadImage("gui1.png");
-  img5 = loadImage("dirtyocean.png");
-  img6 = loadImage("ocean.png");
-
+  moon = loadImage('moon.png');
+  sun = loadImage('sun.png');
+  stars = loadImage('stars.jpg');
+  sky = loadImage('sky.png');
+  city = loadImage('city.png');
+  ocean = loadImage('ocean.png');
 }
 
 function setup() {
-  createCanvas(500, 400);
-  noCursor();
-  noStroke();
+  createCanvas(600, 500);
+
 }
 
 function draw() {
-  let x = mouseX;
-  let y = mouseY;
-  let ix = width - mouseX; // Inverse X
-  let iy = height - mouseY; // Inverse Y
 
-  if (mouseIsPressed) {
-    imageMode(CORNER);
+  if ((mouseX <= 300) && (mouseY <= 500)){
+  noTint();
+  // background(255);
+  background(sky);
 
-    background(img6);
-    background(img3);
-  } else {
-    imageMode(CORNER);
+  //sun
+  image(sun, a, b, 110, 110);
 
-    background(img5);
+  a = a + speedA;
+  b = b + speedB;
 
-      background(img4);
+  if (a > width - 110){
+  	speedA = -1;
   }
 
+  if (a < 0){
+    speedA = 1;
+  }
 
+  if (b > height - 110){
+  	speedB = -1;
+  }
 
-  imageMode(CENTER);
-  image(img1, x, y);
-  image(img2, ix, iy);
+  if (b < 0){
+    speedB = 1;
+  }
 
+    tint('lightBlue');
+  image(city, 0, 205);
 
+  tint('pink');
+  image(ocean, 0, 225);
+  }
+
+  else {
+
+  noTint();
+  // background(0);
+  background(stars);
+
+    //moon
+  image(moon, x, y, 110, 110);
+
+  x = x + speedX;
+  y = y + speedY;
+
+   if (x > width - 110){
+  	speedX = -2;
+  }
+
+   if (x < 0){
+    speedX = 2;
+  }
+
+   if (y > height - 110){
+  	speedY = -2;
+  }
+
+   if (y < 0){
+    speedY = 2;
+  }
+
+  tint('orange');
+  image(city, 0, 205);
+
+  tint('brown');
+  image(ocean, 0, 225);
+
+  }
 
 }
