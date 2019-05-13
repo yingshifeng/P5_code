@@ -14,7 +14,7 @@ function preload() {
   moon = loadImage('moon.png');
   sun = loadImage('sun.png');
   stars = loadImage('stars.jpg');
-  sky = loadImage('sky.jpg');
+  sky = loadImage('sky.png');
   city = loadImage('city.png');
   ocean = loadImage('ocean.png');
 }
@@ -28,7 +28,7 @@ function draw() {
 
   if ((mouseX <= 300) && (mouseY <= 500)){
   noTint();
-  background(255);
+  // background(255);
   background(sky);
 
   //sun
@@ -63,7 +63,7 @@ function draw() {
   else {
 
   noTint();
-  background(0);
+  // background(0);
   background(stars);
 
     //moon
